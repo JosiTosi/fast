@@ -155,12 +155,24 @@ Copy `.env.example` to `.env` and configure:
 
 ### GitHub Actions
 
-The project includes a comprehensive CI/CD pipeline:
+The project includes a comprehensive **Modern CI/CD Pipeline** with industry best practices:
 
-1. **Test**: Runs linting, type checking, and tests
-2. **Security**: Security scanning with bandit
-3. **Docker**: Builds and pushes Docker images
-4. **Deploy**: Deployment to production (customize as needed)
+1. **🔍 Precommit Checks**: Environment validation and setup
+2. **🧹 Code Quality**: Linting, formatting, and type checking
+3. **🔨 Build**: Docker image creation with artifact management
+4. **🧪 Unit Tests**: Comprehensive testing with 80% coverage enforcement
+5. **🔗 Integration Tests**: End-to-end Docker container validation (NEW!)
+6. **🔒 Security Scan**: Security vulnerability scanning
+7. **🚀 Release**: Production deployment (main branch only)
+
+**📚 For detailed documentation**: See [**CI/CD Pipeline Documentation**](docs/CI-CD-PIPELINE.md)
+
+**Key Features:**
+- ⚡ **Parallel execution** of tests for faster feedback
+- 📦 **Artifact management** with Docker image sharing
+- 🎯 **Coverage threshold** enforcement (80% minimum)
+- 🔒 **Production environment** protection
+- 🧪 **Integration tests** with real Docker containers
 
 ### Docker
 
