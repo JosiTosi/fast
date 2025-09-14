@@ -78,6 +78,8 @@ docker-compose --profile production up --build
 
 ## Development
 
+For a detailed step-by-step development workflow, see: **[📋 Developer Workflow Guide](docs/DEVELOPER_WORKFLOW.md)**
+
 ### Project Structure
 
 ```
