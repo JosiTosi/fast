@@ -102,7 +102,7 @@ docker run -p 8000:8000 fast-api
 ### API Structure
 - **Health Endpoints**: `/health`, `/health/ready`, `/health/live`
 - **API v1**: All business logic under `/api/v1/` prefix
-- **CRUD Operations**: Full REST API for items management
+- **Clean Structure**: Ready for custom API development
 - **Error Handling**: Structured HTTP exceptions with proper status codes
 - **Documentation**: Auto-generated OpenAPI/Swagger docs at `/docs`
 

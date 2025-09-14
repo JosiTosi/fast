@@ -146,12 +146,8 @@ Copy `.env.example` to `.env` and configure:
 
 ### API Endpoints
 
-- `GET /api/v1/items` - List all items
-- `POST /api/v1/items` - Create a new item
-- `GET /api/v1/items/{id}` - Get item by ID
-- `PUT /api/v1/items/{id}` - Update item by ID
-- `DELETE /api/v1/items/{id}` - Delete item by ID
-- `GET /api/v1/example` - Example endpoint
+- `GET /api/v1/` - API information
+- **TODO**: Add your custom API endpoints here
 
 ## Deployment
 

@@ -54,12 +54,6 @@ def create_app() -> FastAPI:
 app = create_app()
 
 
-@app.get("/")
-async def root() -> dict[str, str]:
-    """Root endpoint."""
-    return {"message": "Welcome to the Fast API application! 🚀"}
-
-
 if __name__ == "__main__":
     import uvicorn
 
