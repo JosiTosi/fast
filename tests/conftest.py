@@ -1,8 +1,9 @@
 """Test configuration and fixtures."""
 
 import pytest
-from fast_api.main import app
 from fastapi.testclient import TestClient
+
+from src.fast_api.main import app
 
 
 @pytest.fixture

@@ -3,7 +3,7 @@
 from fastapi.testclient import TestClient
 
 
-# Health Check Tests (keep these)
+# Health Check Tests
 def test_health_check(client: TestClient) -> None:
     """Test health check endpoint."""
     response = client.get("/health")
@@ -11,7 +11,9 @@ def test_health_check(client: TestClient) -> None:
     data = response.json()
     assert data["status"] == "healthy"
     assert "timestamp" in data
-    assert "version" in data
+    assert "application" in data
+    assert data["application"]["name"] == "Fast API"
+    assert data["application"]["version"] == "1.0.0"
     assert data["service"] == "fast-api"
 
 
@@ -21,7 +23,10 @@ def test_readiness_check(client: TestClient) -> None:
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "ready"
+    assert "timestamp" in data
     assert "checks" in data
+    assert "database" in data["checks"]
+    assert "external_services" in data["checks"]
 
 
 def test_liveness_check(client: TestClient) -> None:
@@ -30,22 +35,33 @@ def test_liveness_check(client: TestClient) -> None:
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "alive"
+    assert "timestamp" in data
 
 
-def test_api_info(client: TestClient) -> None:
-    """Test API info endpoint."""
+# API v1 Tests
+def test_api_root(client: TestClient) -> None:
+    """Test API root endpoint."""
     response = client.get("/api/v1/")
     assert response.status_code == 200
     data = response.json()
-    assert data["message"] == "API v1 is running"
-    assert "version" in data
-    assert "status" in data
+    assert data["message"] == "Welcome to Fast API v1!"
 
 
-# TODO: Add your API tests here
+def test_api_status(client: TestClient) -> None:
+    """Test API status endpoint."""
+    response = client.get("/api/v1/status")
+    assert response.status_code == 200
+    data = response.json()
+    assert data["status"] == "operational"
+    assert data["version"] == "1.0.0"
+    assert data["environment"] == "development"
+    assert "timestamp" in data
+
+
+# TODO: Add your custom API tests here when you implement your endpoints
 # Example:
 # def test_your_endpoint(client: TestClient) -> None:
-#     """Test your endpoint."""
+#     """Test your custom endpoint."""
 #     response = client.get("/api/v1/your-endpoint")
 #     assert response.status_code == 200
 #     assert "expected_field" in response.json()
