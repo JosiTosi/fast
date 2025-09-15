@@ -46,6 +46,11 @@ Homepage = "https://github.com/JosiTosi/fast"
 Repository = "https://github.com/JosiTosi/fast.git"
 Issues = "https://github.com/JosiTosi/fast/issues"
 
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+]
+
 [tool.ruff]
 target-version = "py311"
 line-length = 88
