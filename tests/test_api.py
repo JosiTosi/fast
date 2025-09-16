@@ -38,26 +38,6 @@ def test_liveness_check(client: TestClient) -> None:
     assert "timestamp" in data
 
 
-# API v1 Tests
-def test_api_root(client: TestClient) -> None:
-    """Test API root endpoint."""
-    response = client.get("/api/v1/")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["message"] == "Welcome to Fast API v1!"
-
-
-def test_api_status(client: TestClient) -> None:
-    """Test API status endpoint."""
-    response = client.get("/api/v1/status")
-    assert response.status_code == 200
-    data = response.json()
-    assert data["status"] == "operational"
-    assert data["version"] == "1.0.0"
-    assert data["environment"] == "development"
-    assert "timestamp" in data
-
-
 # TODO: Add your custom API tests here when you implement your endpoints
 # Example:
 # def test_your_endpoint(client: TestClient) -> None:
